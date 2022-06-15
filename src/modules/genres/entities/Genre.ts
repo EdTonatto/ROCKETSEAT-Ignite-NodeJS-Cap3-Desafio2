@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Game } from "../../games/entities/Game";
 
+@Entity('genres')
 export class Genre {
   @PrimaryGeneratedColumn()
   id: string;
