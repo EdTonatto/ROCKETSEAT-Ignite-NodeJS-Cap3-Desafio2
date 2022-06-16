@@ -8,6 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Genre } from '../../genres/entities/Genre';
+import { Order } from '../../orders/entities/Order';
 
 import { User } from '../../users/entities/User';
 
@@ -25,6 +26,10 @@ export class Game {
   @ManyToMany(() => Genre, (genre) => genre.games)
   @JoinTable()
   genres: Genre[];
+
+  @ManyToMany(() => Order, (order) => order.games)
+  @JoinTable()
+  orders: Order[];
 
   @CreateDateColumn()
   created_at: Date;

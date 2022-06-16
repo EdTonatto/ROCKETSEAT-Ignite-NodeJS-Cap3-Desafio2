@@ -4,11 +4,13 @@ import {
   Entity,
   JoinTable,
   ManyToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { Game } from '../../games/entities/Game';
+import { Order } from '../../orders/entities/Order';
 
 @Entity('users')
 export class User {
@@ -28,6 +30,10 @@ export class User {
   @JoinTable()
   games: Game[];
 
+  @ManyToMany(() => Order, (order) => order.user)
+  @JoinTable()
+  orders: Order[]
+  
   @CreateDateColumn()
   created_at: Date;
 
