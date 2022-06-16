@@ -48,14 +48,14 @@ export class migrationGamesGenres1655296918426 implements MigrationInterface {
         const foreignKeyGenres = table.foreignKeys.find(
           (fk) => fk.columnNames.indexOf("genresId") !== -1,
         )
-        if (foreignKeyGenres) await queryRunner.dropForeignKey("answer", foreignKeyGenres)
+        if (foreignKeyGenres) await queryRunner.dropForeignKey("games_genres", foreignKeyGenres)
 
         const foreignKeyGames = table.foreignKeys.find(
           (fk) => fk.columnNames.indexOf("gamesId") !== -1,
         )
-        if (foreignKeyGames) await queryRunner.dropForeignKey("answer", foreignKeyGames)
+        if (foreignKeyGames) await queryRunner.dropForeignKey("games_genres", foreignKeyGames)
       }
-      await queryRunner.dropTable('genres')
+      await queryRunner.dropTable('games_genres')
     }
 
 }
